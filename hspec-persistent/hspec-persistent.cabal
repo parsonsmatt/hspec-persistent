@@ -1,0 +1,94 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.34.4.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 173e6c134c6e50ca83080ce0be33b7428f9e3bce9960490c115c6c275d8a5228
+
+name:           hspec-persistent
+version:        0.1.0.4
+synopsis:       Persistent test suites
+description:    This package presents helpers and conveniences for writing database tests with the persistent database library. Please see the README on GitHub at <https://github.com/parsonsmatt/hspec-persistent#readme>
+category:       Web
+homepage:       https://github.com/parsonsmatt/hspec-persistent#readme
+bug-reports:    https://github.com/parsonsmatt/hspec-persistent/issues
+author:         Matt Parsons
+maintainer:     parsonsmatt@gmail.com
+copyright:      Matt Parsons
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/parsonsmatt/hspec-persistent
+
+library
+  exposed-modules:
+      Test.Hspec.Persistent
+      Test.Hspec.Persistent.Internal
+  other-modules:
+      Paths_hspec_persistent
+  hs-source-dirs:
+      ./src
+  default-extensions:
+      BlockArguments
+      TypeFamilies
+      FlexibleInstances
+      MultiParamTypeClasses
+      OverloadedStrings
+      GeneralizedNewtypeDeriving
+      DerivingStrategies
+      TypeFamilies
+      GADTs
+      DerivingStrategies
+      StandaloneDeriving
+      DataKinds
+      FlexibleInstances
+  ghc-options: -Wall
+  build-depends:
+      base >=4.12 && <5
+    , hspec-core
+    , mtl
+    , persistent
+    , unliftio-core
+  default-language: Haskell2010
+
+test-suite hspec-persistent-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_hspec_persistent
+  hs-source-dirs:
+      test
+  default-extensions:
+      BlockArguments
+      TypeFamilies
+      FlexibleInstances
+      MultiParamTypeClasses
+      OverloadedStrings
+      GeneralizedNewtypeDeriving
+      DerivingStrategies
+      TypeFamilies
+      GADTs
+      DerivingStrategies
+      StandaloneDeriving
+      DataKinds
+      FlexibleInstances
+  ghc-options: -Wall -threaded -rtsopts -with-rtsopts=-N
+  build-tool-depends:
+      hspec-discover:hspec-discover
+  build-depends:
+      base >=4.12 && <5
+    , hspec
+    , hspec-core
+    , hspec-discover
+    , hspec-persistent
+    , mtl
+    , persistent
+    , unliftio-core
+  default-language: Haskell2010

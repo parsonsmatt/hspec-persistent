@@ -1,0 +1,68 @@
+name:                hspec-persistent-postgresql
+version:             0.1.0.4
+github:              "parsonsmatt/hspec-persistent"
+license:             BSD3
+author:              "Matt Parsons"
+maintainer:          "parsonsmatt@gmail.com"
+copyright:           "Matt Parsons"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+synopsis:            Persistent postgres database tests
+category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         
+    This package contains helpers for writing a test suite against a postgresql
+    database with the persistent database library.
+
+dependencies:
+- base >= 4.12 && < 5
+- mtl
+- persistent
+- persistent-postgresql
+- hspec-core
+- unliftio-core
+- hspec-persistent
+- tmp-postgres
+
+ghc-options:
+    - -Wall
+
+default-extensions:
+    - BlockArguments
+    - TypeFamilies
+    - FlexibleInstances
+    - MultiParamTypeClasses
+    - OverloadedStrings
+    - GeneralizedNewtypeDeriving
+    - DerivingStrategies
+    - TypeFamilies
+    - GADTs
+    - DerivingStrategies
+    - StandaloneDeriving
+    - DataKinds
+    - FlexibleInstances
+
+library:
+  source-dirs: ./src
+
+tests:
+  hspec-persistent-postgresql-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - hspec-persistent-postgresql
+    - hspec
+    - hspec-discover
+    build-tools:
+    - hspec-discover

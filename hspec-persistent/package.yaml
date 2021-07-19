@@ -1,0 +1,64 @@
+name:                hspec-persistent
+version:             0.1.0.4
+github:              "parsonsmatt/hspec-persistent"
+license:             BSD3
+author:              "Matt Parsons"
+maintainer:          "parsonsmatt@gmail.com"
+copyright:           "Matt Parsons"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+synopsis:            Persistent test suites
+category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         
+  This package presents helpers and conveniences for writing database tests with the persistent database library. Please see the README on GitHub at <https://github.com/parsonsmatt/hspec-persistent#readme>
+
+dependencies:
+- base >= 4.12 && < 5
+- mtl
+- persistent
+- hspec-core
+- unliftio-core
+
+ghc-options:
+    - -Wall
+
+default-extensions:
+    - BlockArguments
+    - TypeFamilies
+    - FlexibleInstances
+    - MultiParamTypeClasses
+    - OverloadedStrings
+    - GeneralizedNewtypeDeriving
+    - DerivingStrategies
+    - TypeFamilies
+    - GADTs
+    - DerivingStrategies
+    - StandaloneDeriving
+    - DataKinds
+    - FlexibleInstances
+
+library:
+  source-dirs: ./src
+
+tests:
+  hspec-persistent-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - hspec-persistent
+    - hspec
+    - hspec-discover
+    build-tools:
+    - hspec-discover

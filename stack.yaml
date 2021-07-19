@@ -1,0 +1,10 @@
+resolver: lts-17.10
+
+extra-deps:
+- persistent-2.13.1.1
+- persistent-postgresql-2.13.0.3
+- lift-type-0.1.0.1
+
+packages:
+- ./hspec-persistent
+- ./hspec-persistent-postgresql
